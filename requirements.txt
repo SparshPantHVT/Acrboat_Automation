@@ -1,0 +1,11 @@
+# Adobe Acrobat Computer Vision Automation Framework
+
+# Core Dependencies
+pywinauto==0.6.8
+pyautogui
+opencv-python
+Pillow
+
+# BDD and Reporting
+behave
+allure-behave
