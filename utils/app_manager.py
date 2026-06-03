@@ -5,7 +5,7 @@ import subprocess
 class AcrobatAppManager:
     """Manages the lifecycle of the Adobe Acrobat application natively."""
     
-    def __init__(self, os_type="win", exe_path=r"C:\Program Files\Adobe\Acrobat DC\Acrobat\Acrobat.exe"):
+    def __init__(self, os_type="win", exe_path=r"C:\Program Files\Adobe\Acrobat Beta\Acrobat\Acrobat.exe"):
         self.os_type = os_type.lower()
         self.exe_path = exe_path
         self.app = None

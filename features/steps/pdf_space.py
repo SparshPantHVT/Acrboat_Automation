@@ -70,6 +70,79 @@ def step_impl(context):
               )
     assert success is True, "Failed to visually verify the insights."
      
+@then('the user click on Create PDF space Card in Home Page')
+def step_impl(context):
+    success = context.vision.click_element("gen_pdf_space/create_btn", 
+              timeout=10
+              )
+    time.sleep(5)
+    assert success is True, "Failed to click on Create PDF space Card in Home Page"
+
+@then('the user click on Web Link Button')
+def step_impl(context):
+    success = context.vision.click_element("gen_pdf_space/web_link", 
+              timeout=10
+              )
+    time.sleep(5)
+    assert success is True, "Failed to click on Web Link Button"
+
+@then('the user click on Text Box inside the Web Link pop up')
+def step_impl(context):
+    success = context.vision.click_element("gen_pdf_space/text_box", 
+              timeout=10
+              )
+    time.sleep(5)
+    assert success is True, "Failed to click on Text Box inside the Web Link pop up"   
+    
+@then('the user click add files later button to close')
+def step_impl(context):
+    success = context.vision.click_element("gen_pdf_space/add_files_later", 
+              timeout=10
+              )
+    time.sleep(10)
+    assert success is True, "Failed to click on add files later button to close"   
+
+@then('the user click on Web Link Card in Home Page')
+def step_impl(context):
+    success = context.vision.click_element("gen_pdf_space/web_pages_url", 
+              timeout=10
+              )
+    time.sleep(5)
+    assert success is True, "Failed to click on Web Link Card in Home Page"    
+
+@then('the user gives the URL for PDF Space "{file_path}"')
+def step_impl(context, file_path):
+    print(f"  -> Triggering Open File Dialog for {file_path}...")
+        
+    time.sleep(2) # Wait for the native Windows dialog to render
+    
+    # 2. Paste the exact file path into the dialog to avoid typo/Caps Lock issues
+    pyperclip.copy(file_path)
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(0.5)
+    
+    # 3. Hit Enter to open the file
+    pyautogui.press('enter')
+    
+    # 4. Wait for Adobe Acrobat to fully render the PDF
+    print("  -> Waiting 4 seconds for PDF to load...")
+    time.sleep(4)
+
+@then('the user click on Add Button to Continue the Process')
+def step_impl(context):
+    success = context.vision.click_element("gen_pdf_space/add_btn", 
+              timeout=10
+              )
+    time.sleep(5)
+    assert success is True, "Failed to click on Add Button to Continue the Process" 
+
+@then('the user click on Add to PDF Space Button to Continue the Process')
+def step_impl(context):
+    success = context.vision.click_element("gen_pdf_space/add_to_pdf_space", 
+              timeout=10
+              )
+    time.sleep(5)
+    assert success is True, "Failed to click on Add to PDF Space Button to Continue the Process"     
 
     import allure
     import tempfile

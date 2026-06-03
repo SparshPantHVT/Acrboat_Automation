@@ -5,7 +5,6 @@ import pyperclip
 
 pyautogui.FAILSAFE = False
 
-@step('the user opens the local file "{file_path}"')
 @step('the user opens the local file for "{file_path}"')
 def step_impl(context, file_path):
     print(f"  -> Triggering Open File Dialog for {file_path}...")
